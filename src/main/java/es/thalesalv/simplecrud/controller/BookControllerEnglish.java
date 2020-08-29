@@ -1,8 +1,10 @@
 package es.thalesalv.simplecrud.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,16 +19,22 @@ import es.thalesalv.simplecrud.exception.BookNotFound;
 import es.thalesalv.simplecrud.model.Book;
 import lombok.RequiredArgsConstructor;
 
+@Profile("en")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/books")
-public class BookController {
+public class BookControllerEnglish {
 
     private final BookRepository repo;
+    private static final String BOOK_NOT_FOUND = "Oops! Book not found :: ";
 
     @GetMapping
-    public String olaMundo() throws BookNotFound {
-        return "Olá, mundo!";
+    public Map<String, String> olaMundo() throws BookNotFound {
+        Map<String, String> map = new HashMap<>();
+        map.put("message", "Hello, world!");
+        map.put("OpenShift is too ", System.getenv("OPENSHIFT"));
+
+        return map;
     }
 
     @GetMapping("/get")
@@ -36,7 +44,7 @@ public class BookController {
 
     @GetMapping("/get/{id}")
     public Book getBookById(@PathVariable(value = "id") Long bookId) throws BookNotFound {
-        return repo.findById(bookId).orElseThrow(() -> new BookNotFound("Livro não encontrado :: " + bookId));
+        return repo.findById(bookId).orElseThrow(() -> new BookNotFound(BOOK_NOT_FOUND + bookId));
     }
 
     @PostMapping("/add")
@@ -46,14 +54,14 @@ public class BookController {
 
     @PutMapping("/update/{id}")
     public Book updateBook(@PathVariable(value = "id") Long bookId, @RequestBody Book book) throws BookNotFound {
-        repo.findById(bookId).orElseThrow(() -> new BookNotFound("Livro não encontrado :: " + bookId));
+        repo.findById(bookId).orElseThrow(() -> new BookNotFound(BOOK_NOT_FOUND + bookId));
         book.setId(bookId);
         return repo.save(book);
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteBook(@PathVariable(value = "id") Long bookId) throws BookNotFound {
-        repo.findById(bookId).orElseThrow(() -> new BookNotFound("Livro não encontrado :: " + bookId));
+        repo.findById(bookId).orElseThrow(() -> new BookNotFound(BOOK_NOT_FOUND + bookId));
         Book book = new Book();
         book.setId(bookId);
         repo.delete(book);
