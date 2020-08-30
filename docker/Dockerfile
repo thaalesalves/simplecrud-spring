@@ -17,11 +17,7 @@ RUN tar xvzf apache-maven-3.6.3-bin.tar.gz
 RUN chmod -R +x $MAVEN_HOME/bin
 RUN $MAVEN_HOME/bin/mvn clean install -f /opt/simplecrud-spring/pom.xml
 
-COPY [ "scripts/entrypoint.sh", "/opt/entrypoint.sh" ]
-COPY [ "scripts/vars_en", "/opt/vars_en" ]
-COPY [ "scripts/vars_pt", "/opt/vars_pt" ]
-COPY [ "scripts/vars_fr", "/opt/vars_fr" ]
-
 EXPOSE 8080
 
+COPY [ "scripts/entrypoint.sh", "/opt/entrypoint.sh" ]
 ENTRYPOINT [ "sh", "/opt/entrypoint.sh" ]

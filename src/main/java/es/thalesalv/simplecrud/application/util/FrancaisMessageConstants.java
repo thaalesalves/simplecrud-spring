@@ -1,5 +1,6 @@
 package es.thalesalv.simplecrud.application.util;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +8,12 @@ import org.springframework.stereotype.Component;
 @Profile(Profiles.FRANCAIS)
 public class FrancaisMessageConstants implements MessageConstants {
 
+    @Value("${vars.message}")
+    private String messageVar;
+
+    @Value("${vars.openshift}")
+    private String openshift;
+    
     @Override
     public String profile() {
         return Profiles.FRANCAIS;
@@ -40,5 +47,20 @@ public class FrancaisMessageConstants implements MessageConstants {
     @Override
     public String messageForEveryoneKey() {
         return "Message à tous";
+    }
+
+    @Override
+    public String helloWorld() {
+        return "Salut le Monde!";
+    }
+
+    @Override
+    public String openshiftValue() {
+        return openshift;
+    }
+
+    @Override
+    public String messageForEveryoneValue() {
+        return messageVar;
     }
 }

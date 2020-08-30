@@ -31,9 +31,9 @@ public class BookController {
     @GetMapping
     public Map<String, String> olaMundo() {
         Map<String, String> map = new HashMap<>();
-        map.put(constants.messageKey(), System.getenv("HELLO_WORLD"));
-        map.put(constants.openshiftKey(), System.getenv("OPENSHIFT"));
-        map.put(constants.messageForEveryoneKey(), System.getenv("MESSAGE"));
+        map.put(constants.messageKey(), constants.helloWorld());
+        map.put(constants.openshiftKey(), constants.openshiftValue());
+        map.put(constants.messageForEveryoneKey(), constants.messageForEveryoneValue());
         map.put(constants.languageKey(), constants.languageValue());
 
         return map;
