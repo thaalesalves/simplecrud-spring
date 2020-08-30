@@ -16,7 +16,7 @@ RUN git clone https://github.com/thaalesalves/simplecrud-spring.git
 RUN wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 RUN tar xvzf apache-maven-3.6.3-bin.tar.gz
 RUN chmod -R +x $MAVEN_HOME/bin
-RUN mvn clean install -f /opt/simplecrud-spring/pom.xml
+RUN $MAVEN_HOME/bin/mvn clean install -f /opt/simplecrud-spring/pom.xml
 
 EXPOSE 8080
 
