@@ -1,5 +1,7 @@
 package es.thalesalv.simplecrud.application.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,12 +31,13 @@ public class BookController {
     private final BookRepository repo;
 
     @GetMapping
-    public Map<String, String> olaMundo() {
+    public Map<String, String> olaMundo() throws UnknownHostException {
         Map<String, String> map = new HashMap<>();
         map.put(constants.messageKey(), constants.helloWorld());
         map.put(constants.openshiftKey(), constants.openshiftValue());
         map.put(constants.messageForEveryoneKey(), constants.messageForEveryoneValue());
         map.put(constants.languageKey(), constants.languageValue());
+        map.put("hostname", InetAddress.getLocalHost().getHostName());
 
         return map;
     }
