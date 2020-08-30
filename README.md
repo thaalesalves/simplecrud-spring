@@ -10,9 +10,12 @@ Existem dois Dockerfiles, um não otimizado e um otimizado para OpenShift. Você
 - Spring Boot
 - Spring Data JPA
 - Spring Web
+- Spring Actuator
 - Banco de dados H2
 - Docker (ou Podman)
 - OpenShift
+- PostgreSQL
+- Fabric8
 
 ## Instalação
 ### Maven
