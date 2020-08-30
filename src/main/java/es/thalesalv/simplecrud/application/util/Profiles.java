@@ -9,4 +9,5 @@ public class Profiles {
     public static final String PORTUGUES = "pt";
     public static final String ENGLISH = "en";
     public static final String FRANCAIS = "fr";
+    public static final String DEFAULT = "default";
 }

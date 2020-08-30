@@ -1,2 +1,12 @@
 server.port: 8080
-spring.profiles.active: pt
+spring:
+    profiles.active: default
+    datasource:
+      url: jdbc:h2:~/simplecrud
+      username: simplecrud
+      password: simplecrud
+      driver-class-name: org.h2.Driver
+      initialization-mode: always
+vars:
+  openshift: maneiro
+  message: Mas para onde vai o mundo?

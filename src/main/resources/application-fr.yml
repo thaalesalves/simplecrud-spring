@@ -1,3 +1,13 @@
 vars:
-    openshift: cool
-    message: Mais où va le monde?
+  openshift: cool
+  message: Mais où va le monde?
+spring:
+  jpa:
+    hibernate.ddl-auto: create
+    generate-ddl: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/simplecrud
+    username: simplecrud
+    password: simplecrud
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: always

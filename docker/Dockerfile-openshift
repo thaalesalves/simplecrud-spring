@@ -6,7 +6,7 @@ LABEL maintainer="Seu Nome <voce@dominio.com>" \
     io.openshift.expose-services="8080:http" \
     openshift.io/display-name="Simple Java CRUD"
 
-ENV APP_PROFILE="pt" \
+ENV APP_PROFILE="default" \
     JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.8.10-0.el8_2.x86_64" \
     MAVEN_HOME="/opt/apache-maven-3.6.3" \
     PATH="$PATH:$MAVEN_HOME/bin"

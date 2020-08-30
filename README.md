@@ -1,5 +1,5 @@
 # CRUD com Spring Boot
-Esta aplicação utiliza variáveis de ambiente para detectar o idioma a ser usado para imprimir as mensagens no endpoint /books, e suporte requisições GET, POST, PUT e DELETE para fazer um CRUD de dados de livros numa base de dados H2 embarcada. 
+Esta aplicação utiliza variáveis de ambiente para detectar o idioma a ser usado para imprimir as mensagens no endpoint /api, e suporte requisições GET, POST, PUT e DELETE para fazer um CRUD de dados de livros numa base de dados H2 embarcada, apesar de também suportar PostgreSQL nos demais perfis. 
 
 Existem dois Dockerfiles, um não otimizado e um otimizado para OpenShift. Você pode ler o tutorial completo de como compor esta imagem [aqui](https://medium.com/@thalesalves/criando-uma-imagem-docker-para-openshift-a4768a568f0a).
 
@@ -22,15 +22,16 @@ cd simplecrud-spring
 mvn clean install
 
 # Defina o perfil a user usado (passe o perfil direto para o comando)
-export APP_PROFILE="pt" # português
-export APP_PROFILE="en" # inglês
-export APP_PROFILE="fr" # francês
+export APP_PROFILE="default" # português - banco em memória
+export APP_PROFILE="pt" # português - banco postgresql
+export APP_PROFILE="en" # inglês - banco postgresql
+export APP_PROFILE="fr" # francês - banco postgresql
 
 # Execute-a
 java -Dspring.profiles.active="$APP_PROFILE" -jar target/simplecrud-0.0.1-SNAPSHOT.jar
 ```
 
-A aplicação estará disponível em http://localhost:8080/books
+A aplicação estará disponível em http://localhost:8080/api
 
 ### Docker (ou Podman)
 ```bash
@@ -45,7 +46,7 @@ docker run --name simplecrud -d -p 8080:8080 simplecrud
 docker exec -it simplecrud bash
 ```
 
-A aplicação estará disponível em http://localhost:8080/books
+A aplicação estará disponível em http://localhost:8080/api
 
 ### OpenShift (com Podman)
 ```bash
@@ -73,4 +74,4 @@ oc new-app --name minhaaplicacao -i simplecrud
 oc expose svc minhaaplicacao
 ```
 
-A aplicação está disponível em http://minhaaplicacao-meuprojeto.apps.cluster.openshift.com/books
+A aplicação está disponível em http://minhaaplicacao-meuprojeto.apps.cluster.openshift.com/api
