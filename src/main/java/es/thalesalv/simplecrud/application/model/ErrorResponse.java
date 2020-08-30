@@ -1,4 +1,4 @@
-package es.thalesalv.simplecrud.model;
+package es.thalesalv.simplecrud.application.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

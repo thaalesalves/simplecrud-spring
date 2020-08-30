@@ -1,0 +1,2 @@
+export OPENSHIFT="cool"
+export MESSAGE="Where is the world going?"
