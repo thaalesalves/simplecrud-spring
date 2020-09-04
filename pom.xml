@@ -70,6 +70,29 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.springframework.boot.experimental</groupId>
+            <artifactId>spring-boot-thin-layout</artifactId>
+            <version>1.0.25.RELEASE</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <executable>true</executable>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>appassembler-maven-plugin</artifactId>
+        <version>1.10</version>
+        <configuration>
+          <programs>
+            <program>
+              <mainClass>es.thalesalv.simplecrud.SimplecrudApplication</mainClass>
+              <id>SimplecrudApplication</id>
+            </program>
+          </programs>
+        </configuration>
       </plugin>
     </plugins>
   </build>
