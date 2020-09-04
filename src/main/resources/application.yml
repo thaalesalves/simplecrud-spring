@@ -1,6 +1,6 @@
 server.port: 8080
 spring:
-    profiles.active: fr
+    profiles.active: default
     datasource:
       url: jdbc:h2:./simplecrud
       username: simplecrud
