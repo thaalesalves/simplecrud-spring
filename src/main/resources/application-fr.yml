@@ -6,7 +6,7 @@ spring:
     hibernate.ddl-auto: create
     generate-ddl: true
   datasource:
-    url: jdbc:postgresql://localhost:5432/simplecrud
+    url: jdbc:postgresql://postgresql:5432/simplecrud
     username: simplecrud
     password: simplecrud
     driver-class-name: org.postgresql.Driver
