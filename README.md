@@ -40,7 +40,7 @@ A aplicação estará disponível em http://localhost:8080/api
 ```bash
 # Faça o build da imagem
 cd simplecrud-spring/docker
-docker built -t simplecrud .
+docker build -t simplecrud .
 
 # Suba um container com a imagem
 docker run --name simplecrud -d -p 8080:8080 simplecrud
@@ -55,7 +55,7 @@ A aplicação estará disponível em http://localhost:8080/api
 ```bash
 # Faça o build da imagem
 cd simplecrud-spring/docker
-podman built -t docker.io/seu_usuario/simplecrud . -f Dockerfile-openshift
+podman build -t docker.io/seu_usuario/simplecrud . -f Dockerfile-openshift
 
 # Suba a imagem para o repositório
 podman push docker.io/seu_usuario/simplecrud
