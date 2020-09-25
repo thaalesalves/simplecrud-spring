@@ -9,17 +9,17 @@ services:
     ports:
      - '5432:5432'
     environment:
-      - POSTGRES_USER=simplecrud
-      - POSTGRES_PASSWORD=simplecrud
-      - POSTGRES_DATABASE=simplecrud
+     - POSTGRES_USER=simplecrud
+     - POSTGRES_PASSWORD=simplecrud
+     - POSTGRES_DATABASE=simplecrud
     networks:
-      - simplecrud
-  
+     - simplecrud
+
   simplecrud:
     container_name: simplecrud
-    image: simplecrud:2.0
+    image: simplecrud:latest
     hostname: simplecrud
     ports:
-      - '8080:8080'
+     - '8080:8080'
     networks:
-      - simplecrud
+     - simplecrud
