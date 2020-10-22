@@ -21,4 +21,12 @@ public interface MessageConstants {
     public String messageForEveryoneValue();
 
     public String helloWorld();
+
+    public String profileKey();
+
+    public String profileValue();
+
+    public String databaseKey();
+
+    public String databaseValue();
 }

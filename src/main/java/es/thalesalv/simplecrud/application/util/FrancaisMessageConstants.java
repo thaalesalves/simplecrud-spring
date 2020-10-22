@@ -13,6 +13,9 @@ public class FrancaisMessageConstants implements MessageConstants {
 
     @Value("${vars.openshift}")
     private String openshift;
+
+    @Value("${spring.profiles.active}")
+    private String appProfile;
     
     @Override
     public String profile() {
@@ -62,5 +65,25 @@ public class FrancaisMessageConstants implements MessageConstants {
     @Override
     public String messageForEveryoneValue() {
         return messageVar;
+    }
+
+    @Override
+    public String profileKey() {
+        return "Profil d'application";
+    }
+
+    @Override
+    public String profileValue() {
+        return appProfile;
+    }
+
+    @Override
+    public String databaseKey() {
+        return "Base de données";
+    }
+
+    @Override
+    public String databaseValue() {
+        return "PostgreSQL";
     }
 }
