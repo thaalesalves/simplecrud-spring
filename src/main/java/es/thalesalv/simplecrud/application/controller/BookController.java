@@ -39,6 +39,7 @@ public class BookController {
         map.put(constants.languageKey(), constants.languageValue());
         map.put(constants.profileKey(), constants.profileValue());
         map.put("hostname", InetAddress.getLocalHost().getHostName());
+        map.put(constants.databaseKey(), constants.databaseValue());
 
         return map;
     }
