@@ -27,7 +27,7 @@ RUN yum update -y && \
     chmod -R +x $JAVA_HOME/bin && \
     mkdir /.m2 && \
     $MAVEN_HOME/bin/mvn clean install -f /opt/simplecrud-spring/pom.xml && \
-    chgrp 1001:0 -R /opt /.m2 && \
+    chown 1001:0 -R /opt /.m2 && \
     chmod g=u -R /opt /.m2
 
 EXPOSE 8080
