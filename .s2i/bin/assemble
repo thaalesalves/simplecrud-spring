@@ -1,0 +1,26 @@
+#!/bin/bash -e
+
+# Caso o script seja executado com -h, instruções são exibidas
+if [[ "$1" == "-h" ]]; then
+	exec /usr/libexec/s2i/usage
+fi
+
+# Restaura dependências do maven para a pasta do .m2
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+  echo "--> Restaurando artefatos de compilação..."
+  shopt -s dotglob
+  mv /tmp/maven-artifacts /.m2
+  shopt -u dotglob
+fi
+
+# Copia o código fonte para sua pasta
+echo "--> Instalando código fonte da aplicação..."
+cp -Rf /tmp/src/. /opt/java-app
+
+# Executa os testes
+echo "--> Executando testes unitários da aplicação..."
+mvn test -f /opt/java-app/pom.xml
+
+# Compila a aplicação
+echo "--> Compilando código fonte da aplicação..."
+mvn clean install -DskipTests -f /opt/java-app/pom.xml
