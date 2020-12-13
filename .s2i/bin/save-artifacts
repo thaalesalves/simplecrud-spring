@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -d ${HOME}/.m2 ]; then
+    pushd ${HOME}
+    echo "--> Salvando artefatos de compilação..."
+    tar cf - ${HOME}/.m2
+    popd
+fi
