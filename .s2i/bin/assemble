@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash
 
 # Caso o script seja executado com -h, instruções são exibidas
 if [[ "$1" == "-h" ]]; then
@@ -17,10 +17,10 @@ fi
 echo "--> Instalando código fonte da aplicação..."
 cp -Rf /tmp/src/. /opt/java-app
 
-# Executa os testes
-echo "--> Executando testes unitários da aplicação..."
-mvn test -f /opt/java-app/pom.xml
-
 # Compila a aplicação
 echo "--> Compilando código fonte da aplicação..."
 mvn clean install -DskipTests -f /opt/java-app/pom.xml
+
+# Executa os testes
+echo "--> Executando testes unitários da aplicação..."
+mvn test -f /opt/java-app/pom.xml
