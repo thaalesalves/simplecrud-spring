@@ -6,8 +6,8 @@ spring:
     hibernate.ddl-auto: create
     generate-ddl: true
   datasource:
-    url: jdbc:postgresql://postgresql:5432/simplecrud
-    username: simplecrud
-    password: simplecrud
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
     initialization-mode: always
