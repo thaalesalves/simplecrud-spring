@@ -6,6 +6,10 @@ ENV APP_PROFILE="default"
 ENV JAVA_HOME="/opt/jdk-11.0.2"
 ENV MAVEN_HOME="/opt/apache-maven-3.6.3"
 ENV PATH="$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin"
+ENV PORT="8080"
+ENV DATABASE_URL="jdbc:postgresql://localhost:5432/simplecrud"
+ENV DATABASE_USER="simplecrud"
+ENV DATABASE_PASSWORD="simplecrud"
 
 WORKDIR "/opt"
 

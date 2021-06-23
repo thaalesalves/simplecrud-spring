@@ -9,7 +9,11 @@ LABEL maintainer="Seu Nome <voce@dominio.com>" \
 ENV APP_PROFILE="default" \
     JAVA_HOME="/opt/jdk-11.0.2" \
     MAVEN_HOME="/opt/apache-maven-3.6.3" \
-    PATH="$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin"
+    PATH="$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin" \
+    PORT="8080" \
+    DATABASE_URL="jdbc:postgresql://localhost:5432/simplecrud" \
+    DATABASE_USER="simplecrud" \
+    DATABASE_PASSWORD="simplecrud"
 
 WORKDIR "/opt"
 
